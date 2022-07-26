@@ -1,8 +1,7 @@
 import type { NextPage } from 'next'
-import Slider from '../src/components/Slider'
 import { PageTitle } from '../src/infra/components/Head'
-import Description from '../src/patterns/Description'
 import Header from '../src/patterns/Header'
+import Product from '../src/patterns/Product'
 
 
 const Home: NextPage = () => {
@@ -13,8 +12,7 @@ const Home: NextPage = () => {
       </PageTitle>
 
       <Header />
-      <Slider />
-      <Description />
+      <Product />
     </>
   )
 }

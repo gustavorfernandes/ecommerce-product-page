@@ -8,7 +8,7 @@ export default function Document() {
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet" />
 
-        <link rel="icon" href="/favicon.svg" />
+        <link rel="icon" href="/images/favicon-32x32.png" />
 
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatibe" content="IE=edge" />

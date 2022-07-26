@@ -3,7 +3,7 @@ function Slider() {
   return(
     <img 
       className="w-full"
-      src="/images/image-product-1-thumbnail.jpg"
+      src="/images/image-product-1.jpg"
       alt="Product"
     />
     

@@ -12,7 +12,8 @@ module.exports = {
       },
       colors: {
         orange: {
-          500: '#FF7D1A',
+          400: 'hsl(26,100%, 93%)',
+          500: 'hsl(26, 100%, 55%)',
         },      
         neutral: {
           100: '#F7F8FD',
@@ -24,6 +25,9 @@ module.exports = {
           900: '#000000',
         },
       },
+      boxShadow: {
+        'button': 'hsl(26, 100%, 90%) 0px 12px 30px 5px;'
+      }
     },
   },
   plugins: [],

@@ -8,7 +8,7 @@ function Header() {
 
   return (
     <div className="w-full flex items-center justify-center">
-      <div className="w-11/12 flex justify-between items-center my-3">
+      <div className="w-10/12 flex justify-between items-center my-3">
         <div className="flex justify-center items-center">
           <span className="text-neutral-600 -ml-3 -mb-1">
             <Hamburger
@@ -28,9 +28,12 @@ function Header() {
         </div>
 
         <div className="flex justify-center items-center gap-6">
-          <AiOutlineShoppingCart
-            className="font-[400] w-6 h-6 text-neutral-500"
-          />
+
+          <button>
+            <AiOutlineShoppingCart
+              className="font-[400] w-6 h-6 text-neutral-500"
+            />
+          </button>
 
           <img
             className="h-6 w-6"
