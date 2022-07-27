@@ -2,7 +2,7 @@
 function Slider() {
   return(
     <img 
-      className="w-full"
+      className="w-full h-[18.5rem]"
       src="/images/image-product-1.jpg"
       alt="Product"
     />

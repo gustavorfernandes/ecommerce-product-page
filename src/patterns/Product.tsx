@@ -11,11 +11,11 @@ function Product() {
       <Description />
       <Price />
 
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-3">
         <Counter />
         <div className="w-full flex items-center justify-center">
           <button
-            className="w-10/12 bg-orange-500 rounded-lg py-3 shadow-button"
+            className="w-10/12 bg-orange-500 rounded-lg py-3 shadow-button h-14"
           >
             <div className="flex items-center justify-center gap-4">
               <AiOutlineShoppingCart

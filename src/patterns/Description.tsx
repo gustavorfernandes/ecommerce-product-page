@@ -1,7 +1,7 @@
 function Description() {
   return (
-    <div className="w-full flex flex-col items-center justify-center gap-4">
-      <div className="font-kumbh w-10/12 flex flex-col gap-4 mt-6">
+    <div className="w-full flex flex-col items-center justify-center">
+      <div className="font-kumbh w-10/12 flex flex-col gap-3 mt-6">
         <h2 className="font-bold text-sm uppercase text-orange-500">
           Sneaker Company
         </h2>
