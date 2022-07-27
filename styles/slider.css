@@ -17,13 +17,33 @@
 }
 
 .swiper-button-prev {
-  color: #1D2025;
-  padding-left: 1rem;
+  background-color: #fff;
+  margin-left: .5rem;
+  border-radius: 100%;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 2px 4px 0 0;
+}
+
+.swiper-button-prev::after {
+  font-size: .85rem;
+  font-weight: 700;
+  content: url("/images/icon-previous.svg");
 }
 
 .swiper-button-next {
-  color: #1D2025;
-  padding-right: 1rem;  
+  background-color: #fff;
+  margin-right: .5rem;
+  border-radius: 100%;
+  width: 2.5rem;
+  height: 2.5rem;  
+  padding: 1px 0 0 1px;
+}
+
+.swiper-button-next::after {  
+  font-size: .85rem;
+  font-weight: 700;
+  content: url("/images/icon-next.svg");  
 }
 
 .swiper-pagination-bullet-active {  
