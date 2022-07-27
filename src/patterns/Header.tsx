@@ -5,16 +5,21 @@ import { AiOutlineShoppingCart } from "@react-icons/all-files/ai/AiOutlineShoppi
 import { AnimatePresence, motion } from 'framer-motion'
 
 function Header() {
-  const [isOpen, setOpen] = useState(false)
+  const [menu, setMenu] = useState(false)
+  const [cart, setCart] = useState(false)
 
-  function closeMenu() {
-    setOpen(false)
+  function toggleMenu() {
+    setMenu(!menu)
+  }
+
+  function toggleCart() {
+    setCart(!cart)
   }
 
   return (
     <>
       <AnimatePresence>
-        {(isOpen) &&
+        {(menu) &&
           <>
             <motion.div
               className="bg-white fixed self-start w-8/12 h-full z-20"
@@ -22,42 +27,42 @@ function Header() {
               animate={{ x: - 0 }}
               exit={{ x: -300 }}
               transition={{ duration: 0.5 }}
-              onBlur={closeMenu}
+              onBlur={toggleMenu}
             >
               <nav>
                 <ul className="flex flex-col gap-4 pt-24 pl-9 font-kumbh text-neutral-400 font-bold text-lg duration-[5ms]">
                   <li>
                     <a
                       className="cursor-pointer hover:border-b-4 hover:border-orange-400 pb-1 transition-all"
-                      onClick={closeMenu}>
+                      onClick={toggleMenu}>
                       Collections
                     </a>
                   </li>
                   <li>
                     <a
                       className="cursor-pointer hover:border-b-4 hover:border-orange-400 pb-1 transition-all"
-                      onClick={closeMenu}>
+                      onClick={toggleMenu}>
                       Men
                     </a>
                   </li>
                   <li>
                     <a
                       className="cursor-pointer hover:border-b-4 hover:border-orange-400 pb-1 transition-all"
-                      onClick={closeMenu}>
+                      onClick={toggleMenu}>
                       Women
                     </a>
                   </li>
                   <li>
                     <a
                       className="cursor-pointer hover:border-b-4 hover:border-orange-400 pb-1 transition-all"
-                      onClick={closeMenu}>
+                      onClick={toggleMenu}>
                       About
                     </a>
                   </li>
                   <li>
                     <a
                       className="cursor-pointer hover:border-b-4 hover:border-orange-400 pb-1 transition-all"
-                      onClick={closeMenu}>
+                      onClick={toggleMenu}>
                       Contact
                     </a>
                   </li>
@@ -67,22 +72,54 @@ function Header() {
             <div
               id="Overlay"
               className="z-10 fixed inset-0"
-              onClick={closeMenu}
+              onClick={toggleMenu}
             />
           </>
+        }
+
+        {(cart) &&
+          <div className="flex items-center justify-center">
+            <motion.div
+              className="bg-white fixed rounded-lg w-11/12 h-64 z-20 inset-y-20"
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.5 }}
+              transition={{ duration: 0.3 }}
+              onBlur={toggleMenu}
+            >
+              <div className="w-full flex flex-col justify-center items-center">
+                <div className="w-full flex items-start p-5 h-16 border-b">
+                  <span className="font-kumbh font-bold text-neutral-400 text-lg select-none">
+                    Cart
+                  </span>
+                </div>
+
+                <div className="flex">
+
+                </div>
+              </div>
+
+            </motion.div>
+
+            <div
+              id="Overlay"
+              className="z-10 fixed inset-0"
+              onClick={toggleCart}
+            />
+          </div>
         }
       </AnimatePresence>
 
       <div className="w-full flex items-center justify-center select-none">
         <div className="w-10/12 flex justify-between items-center my-3">
           <div className="flex justify-center items-center">
-            <span className="text-neutral-600 -ml-3 -mb-1 z-30">
+            <span className={`text-neutral-600 -ml-3 -mb-1 ${cart ? "z-0" : "z-30"}`}>
               <Hamburger
                 size={20}
                 rounded
                 label="Show menu"
-                toggled={isOpen}
-                toggle={setOpen}
+                toggled={menu}
+                toggle={setMenu}
               />
             </span>
 
@@ -95,9 +132,9 @@ function Header() {
 
           <div className="flex justify-center items-center gap-6">
 
-            <button>
+            <button onClick={toggleCart}>
               <AiOutlineShoppingCart
-                className="font-[400] w-6 h-6 text-neutral-500 hover:text-neutral-400 transition-all"
+                className={`font-[400] w-6 h-6 transition-all ${cart === true ? "text-neutral-400" : "text-neutral-500"}`}
               />
             </button>
 
