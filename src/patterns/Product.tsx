@@ -55,7 +55,7 @@ function Product() {
         <Counter />
         <div className="w-full flex items-center justify-center">
           <button
-            className="w-10/12 bg-orange-500 rounded-lg py-3 shadow-button h-14"
+            className="w-10/12 bg-orange-500 hover:bg-orange-400 transition-all rounded-lg py-3 shadow-button h-14"
           >
             <div className="flex items-center justify-center gap-4">
               <AiOutlineShoppingCart

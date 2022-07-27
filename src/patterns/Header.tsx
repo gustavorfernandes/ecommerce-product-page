@@ -27,27 +27,37 @@ function Header() {
               <nav>
                 <ul className="flex flex-col gap-4 pt-24 pl-9 font-kumbh text-neutral-400 font-bold text-lg duration-[5ms]">
                   <li>
-                    <a onClick={closeMenu}>
+                    <a
+                      className="cursor-pointer hover:border-b-4 hover:border-orange-400 pb-1 transition-all"
+                      onClick={closeMenu}>
                       Collections
                     </a>
                   </li>
                   <li>
-                    <a onClick={closeMenu}>
+                    <a
+                      className="cursor-pointer hover:border-b-4 hover:border-orange-400 pb-1 transition-all"
+                      onClick={closeMenu}>
                       Men
                     </a>
                   </li>
                   <li>
-                    <a onClick={closeMenu}>
+                    <a
+                      className="cursor-pointer hover:border-b-4 hover:border-orange-400 pb-1 transition-all"
+                      onClick={closeMenu}>
                       Women
                     </a>
                   </li>
                   <li>
-                    <a onClick={closeMenu}>
+                    <a
+                      className="cursor-pointer hover:border-b-4 hover:border-orange-400 pb-1 transition-all"
+                      onClick={closeMenu}>
                       About
                     </a>
                   </li>
                   <li>
-                    <a onClick={closeMenu}>
+                    <a
+                      className="cursor-pointer hover:border-b-4 hover:border-orange-400 pb-1 transition-all"
+                      onClick={closeMenu}>
                       Contact
                     </a>
                   </li>
@@ -87,7 +97,7 @@ function Header() {
 
             <button>
               <AiOutlineShoppingCart
-                className="font-[400] w-6 h-6 text-neutral-500"
+                className="font-[400] w-6 h-6 text-neutral-500 hover:text-neutral-400 transition-all"
               />
             </button>
 
