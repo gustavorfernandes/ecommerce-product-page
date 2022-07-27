@@ -1,0 +1,31 @@
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
+
+.swiper {
+  padding: 0;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide:active {
+  cursor: grab;
+}
+
+.swiper-button-prev {
+  color: #1D2025;
+  padding-left: 1rem;
+}
+
+.swiper-button-next {
+  color: #1D2025;
+  padding-right: 1rem;  
+}
+
+.swiper-pagination-bullet-active {  
+  background: #1D2025;
+}

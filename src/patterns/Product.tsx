@@ -1,14 +1,58 @@
+/* eslint-disable @next/next/no-img-element */
 import { AiOutlineShoppingCart } from "@react-icons/all-files/ai/AiOutlineShoppingCart"
 import Counter from "../components/Counter"
-import Slider from "../components/Slider"
+import { Slider, SliderProps, Slide } from '../utils/slider-imports'
 import Description from "./Description"
 import Price from "./Price"
 
 function Product() {
+  const settings: SliderProps = {
+    spaceBetween: 0,
+    slidesPerView: 1,
+    loop: true,
+    navigation: false,
+    pagination: {
+      type: 'bullets',
+      clickable: true,
+    }
+  }
+  
   return (
     <div className="mb-20">
-      <Slider />
+      
+      <Slider settings={settings}>
+        <Slide>
+          <img
+            className="w-full h-80"
+            src="/images/image-product-1.jpg"
+            alt="Product 01"
+          />          
+        </Slide>
+        <Slide>
+          <img
+            className="w-full h-80"
+            src="/images/image-product-2.jpg"
+            alt="Product 02"
+          />          
+        </Slide>
+        <Slide>
+          <img
+            className="w-full h-80"
+            src="/images/image-product-3.jpg"
+            alt="Product 03"
+          />          
+        </Slide>
+        <Slide>
+          <img
+            className="w-full h-80"
+            src="/images/image-product-4.jpg"
+            alt="Product 04"
+          />          
+        </Slide>
+      </Slider>
+
       <Description />
+
       <Price />
 
       <div className="flex flex-col gap-3">

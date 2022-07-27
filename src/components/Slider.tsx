@@ -1,13 +1,14 @@
-/* eslint-disable @next/next/no-img-element */
-function Slider() {
-  return(
-    <img 
-      className="w-full h-[18.5rem]"
-      src="/images/image-product-1.jpg"
-      alt="Product"
-    />
-    
-  )
+import { ReactNode } from 'react';
+import { Swiper, SwiperProps } from 'swiper/react';
+import { Pagination, Navigation, A11y } from 'swiper';
+
+interface SliderProps {
+  settings: SwiperProps;
+  children: ReactNode;
 }
 
-export default Slider
+export default function Slider({ settings, children }: SliderProps) {
+  return (
+    <Swiper  modules={[Pagination, Navigation, A11y]} {...settings}>{children}</Swiper>
+  )
+}
