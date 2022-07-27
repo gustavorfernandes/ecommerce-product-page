@@ -15,52 +15,53 @@ function Header() {
     <>
       <AnimatePresence>
         {(isOpen) &&
-          <motion.div
-            className="bg-white fixed self-start w-8/12 h-full z-20"
-            initial={{ x: -300 }}
-            animate={{ x: - 0 }}
-            exit={{ x: -300 }}
-            transition={{ duration: 0.5 }}
-            onBlur={closeMenu}
-          >
-            <nav>
-              <ul className="flex flex-col gap-4 pt-24 pl-9 font-kumbh text-neutral-400 font-bold text-lg duration-[5ms]">
-                <li>
-                  <a onClick={closeMenu}>
-                    Collections
-                  </a>
-                </li>
-                <li>
-                  <a onClick={closeMenu}>
-                    Men
-                  </a>
-                </li>
-                <li>
-                  <a onClick={closeMenu}>
-                    Women
-                  </a>
-                </li>
-                <li>
-                  <a onClick={closeMenu}>
-                    About
-                  </a>
-                </li>
-                <li>
-                  <a onClick={closeMenu}>
-                    Contact
-                  </a>
-                </li>
-              </ul>
-            </nav>
-          </motion.div>
+          <>
+            <motion.div
+              className="bg-white fixed self-start w-8/12 h-full z-20"
+              initial={{ x: -300 }}
+              animate={{ x: - 0 }}
+              exit={{ x: -300 }}
+              transition={{ duration: 0.5 }}
+              onBlur={closeMenu}
+            >
+              <nav>
+                <ul className="flex flex-col gap-4 pt-24 pl-9 font-kumbh text-neutral-400 font-bold text-lg duration-[5ms]">
+                  <li>
+                    <a onClick={closeMenu}>
+                      Collections
+                    </a>
+                  </li>
+                  <li>
+                    <a onClick={closeMenu}>
+                      Men
+                    </a>
+                  </li>
+                  <li>
+                    <a onClick={closeMenu}>
+                      Women
+                    </a>
+                  </li>
+                  <li>
+                    <a onClick={closeMenu}>
+                      About
+                    </a>
+                  </li>
+                  <li>
+                    <a onClick={closeMenu}>
+                      Contact
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </motion.div>
+            <div
+              id="Overlay"
+              className="z-10 fixed inset-0"
+              onClick={closeMenu}
+            />
+          </>
         }
       </AnimatePresence>
-
-      <div 
-        id="Overlay"
-        className="z-10 fixed inset-0"
-        onClick={closeMenu} 
-      />
 
       <div className="w-full flex items-center justify-center">
         <div className="w-10/12 flex justify-between items-center my-3">
