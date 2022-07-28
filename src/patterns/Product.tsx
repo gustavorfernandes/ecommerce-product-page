@@ -4,6 +4,10 @@ import Counter from "../components/Counter"
 import { Slider, SliderProps, Slide } from '../utils/slider-imports'
 import Description from "./Description"
 import Price from "./Price"
+import type { RootState } from '../app/store'
+import { useSelector, useDispatch } from 'react-redux'
+import { incrementByAmount } from '../app/cartSlice'
+import { removeAll } from '../app/counterSlice'
 
 function Product() {
   const settings: SliderProps = {
@@ -11,6 +15,13 @@ function Product() {
     slidesPerView: 1,
     loop: true,
     navigation: true,
+  }
+
+  let count = useSelector((state: RootState) => state.counter.value)
+  const dispatch = useDispatch()
+
+  function clearCounter() {
+    dispatch(removeAll())
   }
 
   return (
@@ -56,6 +67,10 @@ function Product() {
         <div className="w-full flex items-center justify-center">
           <button
             className="w-10/12 bg-orange-500 hover:bg-orange-400 transition-all rounded-lg py-3 shadow-button h-14"
+            onClick={() => {
+              dispatch(incrementByAmount(count))
+              clearCounter()
+            }}
           >
             <div className="flex items-center justify-center gap-4">
               <AiOutlineShoppingCart

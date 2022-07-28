@@ -1,8 +1,12 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
 /* eslint-disable @next/next/no-img-element */
 import { useState } from "react"
 import { Squash as Hamburger } from 'hamburger-react'
 import { AiOutlineShoppingCart } from "@react-icons/all-files/ai/AiOutlineShoppingCart"
 import { AnimatePresence, motion } from 'framer-motion'
+import type { RootState } from '../app/store'
+import { useSelector, useDispatch } from 'react-redux'
+import { removeAll } from '../app/cartSlice'
 
 function Header() {
   const [menu, setMenu] = useState(false)
@@ -15,6 +19,10 @@ function Header() {
   function toggleCart() {
     setCart(!cart)
   }
+
+  const cartCount = useSelector((state: RootState) => state.cart.value)
+  const finalPrice = cartCount * 125
+  const dispatch = useDispatch()
 
   return (
     <>
@@ -87,15 +95,70 @@ function Header() {
               transition={{ duration: 0.3 }}
               onBlur={toggleMenu}
             >
-              <div className="w-full flex flex-col justify-center items-center">
+              <div className="w-full h-full flex flex-col justify-center items-center">
                 <div className="w-full flex items-start p-5 h-16 border-b">
                   <span className="font-kumbh font-bold text-neutral-400 text-lg select-none">
                     Cart
                   </span>
                 </div>
 
-                <div className="flex">
+                <div className="flex w-full h-full items-center justify-center">
+                  {cartCount === 0 ?
+                    <h2 className="font-kumbh font-bold text-neutral-300">
+                      Your cart is empty.
+                    </h2>
+                    :
+                    <div className="w-full px-6 flex flex-col items-center justify-center gap-6">
+                      <div className="w-full flex items-center justify-between gap-4">
+                        <div className="flex gap-4">
+                          <img
+                            className="w-12 rounded"
+                            src="/images/image-product-1-thumbnail.jpg"
+                            alt="Produto"
+                          />
 
+                          <div className="font-kumbh text-neutral-300 flex flex-col">
+                            <h2 className="">
+                              Autumn Limited Edition...
+                            </h2>
+
+                            <div className="flex gap-2 justify-start items-center">
+                              <span>
+                                $125.00
+                              </span>
+                              <span>
+                                x {cartCount}
+                              </span>
+                              <span className="text-neutral-400 font-bold">
+                                ${finalPrice}.00
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+
+                        <button
+                          onClick={() => {
+                            dispatch(removeAll())
+                            toggleCart()
+                          }}
+                        >
+                          <img
+                            className="select-none"
+                            src="/images/icon-delete.svg"
+                            alt="Apagar"
+                          />
+                        </button>
+                      </div>
+                      <button
+                        className="text-white text-sm font-bold font-kumbh w-full bg-orange-500 rounded-lg py-4"
+                        onClick={toggleCart}
+                      >
+                        <a href="/">
+                          Checkout
+                        </a>
+                      </button>
+                    </div>
+                  }
                 </div>
               </div>
 
@@ -132,9 +195,12 @@ function Header() {
 
           <div className="flex justify-center items-center gap-6">
 
-            <button onClick={toggleCart}>
+            <button
+              className={`relative after:px-2 after:absolute after:-top-1 after:left-3 after:rounded-3xl after:text-[10px] after:font-kumbh after:text-white after:font-bold after:content-['${cartCount}'] after:bg-orange-500 ${cartCount === 0 ? "after:hidden text-neutral-500" : "text-neutral-400"}`}
+              onClick={toggleCart}
+            >
               <AiOutlineShoppingCart
-                className={`font-[400] w-6 h-6 transition-all ${cart === true ? "text-neutral-400" : "text-neutral-500"}`}
+                className={`font-[400] w-6 h-6 transition-all ${cart === true && "text-neutral-400"}`}
               />
             </button>
 
