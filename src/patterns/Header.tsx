@@ -3,9 +3,9 @@ import { useState } from "react"
 import { Squash as Hamburger } from 'hamburger-react'
 import { AiOutlineShoppingCart } from "@react-icons/all-files/ai/AiOutlineShoppingCart"
 import { AnimatePresence, motion } from 'framer-motion'
-import type { RootState } from '../app/store'
+import type { RootState } from '../store/store'
 import { useSelector, useDispatch } from 'react-redux'
-import { removeAll } from '../app/cartSlice'
+import { removeAll } from '../store/cartSlice'
 import Link from "next/link"
 
 function Header() {

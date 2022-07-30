@@ -4,10 +4,10 @@ import Counter from "../components/Counter"
 import { Slider, SliderProps, Slide } from '../utils/slider-imports'
 import Description from "./Description"
 import Price from "./Price"
-import type { RootState } from '../app/store'
+import type { RootState } from '../store/store'
 import { useSelector, useDispatch } from 'react-redux'
-import { incrementByAmount } from '../app/cartSlice'
-import { removeAll } from '../app/counterSlice'
+import { incrementByAmount } from '../store/cartSlice'
+import { removeAll } from '../store/counterSlice'
 
 function Product() {
   const settings: SliderProps = {

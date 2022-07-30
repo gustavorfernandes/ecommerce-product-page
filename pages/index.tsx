@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import { PageTitle } from '../src/infra/components/Head'
-import ProductPage from '../src/screens/ProductPage'
+import ProductScreen from '../src/screens/ProductScreen'
 
 
 const Home: NextPage = () => {
@@ -10,7 +10,7 @@ const Home: NextPage = () => {
         Ecommerce product page
       </PageTitle>
 
-      <ProductPage />
+      <ProductScreen />
     </>
   )
 }

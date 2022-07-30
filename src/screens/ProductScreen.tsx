@@ -1,7 +1,7 @@
 import Header from "../patterns/Header"
 import Product from "../patterns/Product"
 
-function ProductPage() {
+function ProductScreen() {
   return (
     <>
     <Header />
@@ -10,4 +10,4 @@ function ProductPage() {
   )
 }
 
-export default ProductPage
+export default ProductScreen
