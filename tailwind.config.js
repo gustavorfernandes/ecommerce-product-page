@@ -26,7 +26,7 @@ module.exports = {
         },
       },
       boxShadow: {
-        'button': 'hsl(26, 100%, 90%) 0px 12px 30px 5px;'
+        'button': 'hsl(26, 100%, 90%) 0px 12px 30px 5px'
       }
     },
   },
