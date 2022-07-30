@@ -1,14 +1,13 @@
 import '../styles/globals.css'
 import '../styles/slider.css'
 import type { AppProps } from 'next/app'
-import { store } from '../src/store/store'
-import { Provider } from 'react-redux'
+import { CartProvider } from '../src/contexts/CartContext'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <Provider store={store}>
-    <Component {...pageProps} />
-    </Provider>
+    <CartProvider>
+      <Component {...pageProps} />
+    </CartProvider>
   )
 }
 

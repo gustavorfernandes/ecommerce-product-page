@@ -1,11 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
-import { useState } from "react"
+import { useState, useContext } from "react"
+import { CartContext } from "../contexts/CartContext"
 import { Squash as Hamburger } from 'hamburger-react'
 import { AiOutlineShoppingCart } from "@react-icons/all-files/ai/AiOutlineShoppingCart"
 import { AnimatePresence, motion } from 'framer-motion'
-import type { RootState } from '../store/store'
-import { useSelector, useDispatch } from 'react-redux'
-import { removeAll } from '../store/cartSlice'
 import Link from "next/link"
 
 function Header() {
@@ -20,9 +18,8 @@ function Header() {
     setCart(!cart)
   }
 
-  const cartCount = useSelector((state: RootState) => state.cart.value)
-  const finalPrice = cartCount * 125
-  const dispatch = useDispatch()
+  const { cartCounter, clearCart }: any = useContext(CartContext)
+  const finalPrice = cartCounter * 125  
 
   return (
     <>
@@ -103,7 +100,7 @@ function Header() {
                 </div>
 
                 <div className="flex w-full h-full items-center justify-center">
-                  {cartCount === 0 ?
+                  {cartCounter === 0 ?
                     <h2 className="font-kumbh font-bold text-neutral-300">
                       Your cart is empty.
                     </h2>
@@ -127,7 +124,7 @@ function Header() {
                                 $125.00
                               </span>
                               <span>
-                                x {cartCount}
+                                x {cartCounter}
                               </span>
                               <span className="text-neutral-400 font-bold">
                                 ${finalPrice}.00
@@ -138,7 +135,7 @@ function Header() {
 
                         <button
                           onClick={() => {
-                            dispatch(removeAll())
+                            clearCart()
                             toggleCart()
                           }}
                         >
@@ -196,9 +193,9 @@ function Header() {
           <div className="flex justify-center items-center gap-6">
 
             <button
-              id={cartCount.toString()}
+              id={cartCounter.toString()}
               className={`relative before:px-2 before:absolute before:-top-1 before:left-3 before:rounded-3xl before:text-[10px] before:font-kumbh before:text-white before:font-bold
-              before:content-[attr(id)] before:bg-orange-500 ${cartCount === 0 ? "before:hidden text-neutral-500" : "text-neutral-400"}`}
+              before:content-[attr(id)] before:bg-orange-500 ${cartCounter === 0 ? "before:hidden text-neutral-500" : "text-neutral-400"}`}
               onClick={toggleCart}
             >
               <AiOutlineShoppingCart

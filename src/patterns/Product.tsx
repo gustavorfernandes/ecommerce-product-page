@@ -4,10 +4,8 @@ import Counter from "../components/Counter"
 import { Slider, SliderProps, Slide } from '../utils/slider-imports'
 import Description from "./Description"
 import Price from "./Price"
-import type { RootState } from '../store/store'
-import { useSelector, useDispatch } from 'react-redux'
-import { incrementByAmount } from '../store/cartSlice'
-import { removeAll } from '../store/counterSlice'
+import { useContext } from "react"
+import { CartContext } from "../contexts/CartContext"
 
 function Product() {
   const settings: SliderProps = {
@@ -17,12 +15,7 @@ function Product() {
     navigation: true,
   }
 
-  let count = useSelector((state: RootState) => state.counter.value)
-  const dispatch = useDispatch()
-
-  function clearCounter() {
-    dispatch(removeAll())
-  }
+  const { counter, addItemsToCart, clearCounter }: any = useContext(CartContext)
 
   return (
     <div className="mb-20">
@@ -68,7 +61,7 @@ function Product() {
           <button
             className="w-10/12 bg-orange-500 hover:bg-orange-400 transition-all rounded-lg py-3 shadow-button h-14"
             onClick={() => {
-              dispatch(incrementByAmount(count))
+              addItemsToCart(counter)
               clearCounter()
             }}
           >
