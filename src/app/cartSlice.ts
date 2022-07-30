@@ -15,11 +15,9 @@ export const cartSlice = createSlice({
   reducers: {   
     incrementByAmount: (state, action: PayloadAction<number>) => {
       state.value += action.payload
-      console.log("Cart :", state.value)
     },
     removeAll: (state) => {
       state.value = 0
-      console.log("Cart :", state.value)
     },
   },
 })

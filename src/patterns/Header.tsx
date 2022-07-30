@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-html-link-for-pages */
 /* eslint-disable @next/next/no-img-element */
 import { useState } from "react"
 import { Squash as Hamburger } from 'hamburger-react'
@@ -7,6 +6,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import type { RootState } from '../app/store'
 import { useSelector, useDispatch } from 'react-redux'
 import { removeAll } from '../app/cartSlice'
+import Link from "next/link"
 
 function Header() {
   const [menu, setMenu] = useState(false)
@@ -153,9 +153,9 @@ function Header() {
                         className="text-white text-sm font-bold font-kumbh w-full bg-orange-500 rounded-lg py-4"
                         onClick={toggleCart}
                       >
-                        <a href="/">
-                          Checkout
-                        </a>
+                        <Link href="/">
+                          <a>Checkout</a>
+                        </Link>
                       </button>
                     </div>
                   }
@@ -196,12 +196,14 @@ function Header() {
           <div className="flex justify-center items-center gap-6">
 
             <button
-              className={`relative after:px-2 after:absolute after:-top-1 after:left-3 after:rounded-3xl after:text-[10px] after:font-kumbh after:text-white after:font-bold after:content-['${cartCount}'] after:bg-orange-500 ${cartCount === 0 ? "after:hidden text-neutral-500" : "text-neutral-400"}`}
+              id={cartCount.toString()}
+              className={`relative before:px-2 before:absolute before:-top-1 before:left-3 before:rounded-3xl before:text-[10px] before:font-kumbh before:text-white before:font-bold
+              before:content-[attr(id)] before:bg-orange-500 ${cartCount === 0 ? "before:hidden text-neutral-500" : "text-neutral-400"}`}
               onClick={toggleCart}
             >
               <AiOutlineShoppingCart
                 className={`font-[400] w-6 h-6 transition-all ${cart === true && "text-neutral-400"}`}
-              />
+              />              
             </button>
 
             <img

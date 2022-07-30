@@ -14,17 +14,14 @@ export const counterSlice = createSlice({
   reducers: {
     increment: (state) => {
       state.value += 1
-      console.log("Counter: ", state.value)
     },
     decrement: (state) => {
       if (state.value > 0) {
         state.value -= 1
-        console.log("Counter: ", state.value)
       }
     },
     removeAll: (state) => {
       state.value = 0
-      console.log("Counter: ", state.value)
     },
   },
 })
