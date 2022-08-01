@@ -3,7 +3,7 @@ import Tag from "../components/Tag"
 function Price() {
   return (
     <div className="w-full flex items-center justify-center">
-      <div className="w-10/12 flex items-center justify-between my-6">
+      <div className="w-11/12 sm:max-w-sm lg:max-w-none flex items-center justify-between my-6 lg:flex-col lg:items-start lg:gap-2">
         <div className="flex gap-4">
           <span className="font-kumbh font-bold text-3xl text-neutral-400">
             $125.00

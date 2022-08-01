@@ -46,6 +46,10 @@
   content: url("/images/icon-next.svg");  
 }
 
+.swiper-pagination {
+  padding-bottom: 1rem;
+}
+
 .swiper-pagination-bullet-active {  
   background: #1D2025;
 }

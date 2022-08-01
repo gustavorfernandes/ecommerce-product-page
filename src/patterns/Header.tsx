@@ -19,7 +19,7 @@ function Header() {
   }
 
   const { cartCounter, clearCart }: any = useContext(CartContext)
-  const finalPrice = cartCounter * 125  
+  const finalPrice = cartCounter * 125
 
   return (
     <>
@@ -27,7 +27,7 @@ function Header() {
         {(menu) &&
           <>
             <motion.div
-              className="bg-white fixed self-start w-8/12 h-full z-20"
+              className="bg-white fixed self-start w-8/12 sm:w-4/12 h-full z-20"
               initial={{ x: -300 }}
               animate={{ x: - 0 }}
               exit={{ x: -300 }}
@@ -85,7 +85,7 @@ function Header() {
         {(cart) &&
           <div className="flex items-center justify-center">
             <motion.div
-              className="bg-white fixed rounded-lg w-11/12 h-64 z-20 inset-y-20"
+              className="bg-white fixed rounded-lg w-11/12 max-w-[340px] lg:max-w-none lg:w-3/12 h-64 z-20 inset-y-20 lg:inset-0 lg:absolute lg:top-20 lg:left-[65%] xl:left-[69%] lg:min-w-[350px] shadow-box"
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.5 }}
@@ -115,7 +115,7 @@ function Header() {
                           />
 
                           <div className="font-kumbh text-neutral-300 flex flex-col">
-                            <h2 className="">
+                            <h2>
                               Autumn Limited Edition...
                             </h2>
 
@@ -170,10 +170,10 @@ function Header() {
         }
       </AnimatePresence>
 
-      <div className="w-full flex items-center justify-center select-none">
-        <div className="w-10/12 flex justify-between items-center my-3">
+      <div className="w-screen flex items-center justify-center select-none">
+        <div className="w-11/12 lg:w-10/12 flex justify-between items-center my-3 lg:my-0 lg:border-b lg:py-8 lg:mb-24">
           <div className="flex justify-center items-center">
-            <span className={`text-neutral-600 -ml-3 -mb-1 ${cart ? "z-0" : "z-30"}`}>
+            <span className={`text-neutral-600 -ml-3 -mb-1 ${cart ? "z-0" : "z-30"} lg:hidden`}>
               <Hamburger
                 size={20}
                 rounded
@@ -184,30 +184,62 @@ function Header() {
             </span>
 
             <img
-              className="w-32 h-5"
+              className="w-32 h-5 lg:mr-12"
               src="/images/logo.svg"
               alt="Sneakers"
             />
+
+
+            <nav>
+              <ul className="hidden lg:flex gap-8 font-kumbh text-neutral-300">
+                <li>
+                  <a className="cursor-pointer hover:border-b-4 hover:text-neutral-400 hover:border-orange-400 lg:pb-[1.9rem] xl:pb-[2.4rem] transition-all">
+                    Collections
+                  </a>
+                </li>
+                <li>
+                  <a className="cursor-pointer hover:border-b-4 hover:text-neutral-400 hover:border-orange-400 lg:pb-[1.9rem] xl:pb-[2.4rem] transition-all">
+                    Men
+                  </a>
+                </li>
+                <li>
+                  <a className="cursor-pointer hover:border-b-4 hover:text-neutral-400 hover:border-orange-400 lg:pb-[1.9rem] xl:pb-[2.4rem] transition-all">
+                    Women
+                  </a>
+                </li>
+                <li>
+                  <a className="cursor-pointer hover:border-b-4 hover:text-neutral-400 hover:border-orange-400 lg:pb-[1.9rem] xl:pb-[2.4rem] transition-all">
+                    About
+                  </a>
+                </li>
+                <li>
+                  <a className="cursor-pointer hover:border-b-4 hover:text-neutral-400 hover:border-orange-400 lg:pb-[1.9rem] xl:pb-[2.4rem] transition-all">
+                    Contact
+                  </a>
+                </li>
+              </ul>
+            </nav>
           </div>
 
           <div className="flex justify-center items-center gap-6">
-
             <button
               id={cartCounter.toString()}
               className={`relative before:px-2 before:absolute before:-top-1 before:left-3 before:rounded-3xl before:text-[10px] before:font-kumbh before:text-white before:font-bold
-              before:content-[attr(id)] before:bg-orange-500 ${cartCounter === 0 ? "before:hidden text-neutral-500" : "text-neutral-400"}`}
+              before:content-[attr(id)] before:bg-orange-500 ${cartCounter === 0 ? "before:hidden text-neutral-500" : "text-neutral-400"} xl:mr-4 xl:hover:text-neutral-400`}
               onClick={toggleCart}
             >
               <AiOutlineShoppingCart
                 className={`font-[400] w-6 h-6 transition-all ${cart === true && "text-neutral-400"}`}
-              />              
+              />
             </button>
 
+            <div className="h-6 w-6 xl:h-10 xl:w-10 hover:border-orange-500 duration-150 rounded-full border-2">
             <img
-              className="h-6 w-6"
+              className="lg:hover:cursor-pointer"
               src="/images/image-avatar.png"
               alt="Avatar"
             />
+            </div>
           </div>
 
         </div>
